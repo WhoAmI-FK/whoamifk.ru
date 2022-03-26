@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+* {
+  font-family: 'Quicksand',sans-serif;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+  /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
+  /* clip-path: circle(25px at calc(0% + 45px) 45px); */
+  background: #000;
+  -webkit-clip-path: circle(25px at calc(100% - 45px) 45px);
+          clip-path: circle(25px at calc(100% - 45px) 45px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+#active:checked ~ .wrapper {
+  -webkit-clip-path: circle(75%);
+          clip-path: circle(75%);
+}
+
+.menu-btn {
+  position: absolute;
+  right: 20px;
+  /* left: 20px; */
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  z-index: 2;
+  cursor: pointer;
+  /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+  /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
+  background: #000;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#active:checked ~ .menu-btn {
+  color: #fff;
+}
+
+#active:checked ~ .menu-btn i:before {
+  content: "\f00d";
+}
+
+.wrapper ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+
+.wrapper ul li {
+  margin: 15px 0;
+}
+
+.wrapper ul li a {
+  color: none;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  background: #000;
+  position: relative;
+  line-height: 50px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.wrapper ul li a:after {
+  position: absolute;
+  content: "";
+  background: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#14ffe9), color-stop(#ffeb3b), to(#ff00e0));
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+  width: 104%;
+  height: 110%;
+  left: -2%;
+  top: -5%;
+  /* if the font is 'Oswald'*/
+  border-radius: 50px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  z-index: -1;
+  -webkit-animation: rotate 1.5s linear infinite;
+          animation: rotate 1.5s linear infinite;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.wrapper ul li a:hover:after {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.wrapper ul li a:hover {
+  color: #fff;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+  text-align: center;
+  width: 100%;
+  color: #202020;
+}
+
+.content .title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+canvas {
+  background-color: #000;
+}
+
+body {
+  margin: 0rem;
+  font-family: Futura, sans-serif;
+}
+
+#canvas, #text {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#text {
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 8vmin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  cursor: default;
+}
+
+#text h1 {
+  opacity: 0.9;
+}
+
+#myback {
+  width: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#about {
+  margin: 0 auto;
+}
+
+#board {
+  position: relative;
+}
+
+.item {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px black solid;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#arr-left, #arr-right {
+  position: absolute;
+  font-size: 2.5rem;
+  top: 36%;
+}
+
+#arr-left {
+  left: 22%;
+}
+
+#arr-right {
+  right: 22%;
+}
+
+.card-carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.card-carousel .my-card {
+  height: 20rem;
+  width: 20rem;
+  max-width: 90vw;
+  position: relative;
+  z-index: 1;
+  -webkit-transform: scale(0.6) translateY(-2rem);
+  transform: scale(0.6) translateY(-2rem);
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: none;
+  background: #000;
+  background: -webkit-gradient(linear, totop, from(#2e5266), to(#6e8898));
+  background: linear-gradient(totop, #2e5266, #6e8898);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.card-carousel .my-card:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: -5rem;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
+.card-carousel .my-card.active {
+  z-index: 3;
+  -webkit-transform: scale(1) translateY(0) translateX(0);
+  transform: scale(1) translateY(0) translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.card-carousel .my-card.prev, .card-carousel .my-card.next {
+  z-index: 2;
+  -webkit-transform: scale(0.8) translateY(-1rem) translateX(0);
+  transform: scale(0.8) translateY(-1rem) translateX(0);
+  opacity: 0.6;
+  pointer-events: auto;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+/*
+  .card-carousel .my-card:nth-child(0):before {
+    content:'0';
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size:3rem;
+    font-weight:300;
+    color:#fff;
+  }
+  .card-carousel .my-card:nth-child(1):before {
+    content:'1';
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size:3rem;
+    font-weight:300;
+    color:#fff;
+  }
+  .card-carousel .my-card:nth-child(2):before {
+    content:'2';
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size:3rem;
+    font-weight:300;
+    color:#fff;
+  }
+  .card-carousel .my-card:nth-child(3):before {
+    content:'3';
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size:3rem;
+    font-weight:300;
+    color:#fff;
+  }
+  .card-carousel .my-card:nth-child(4):before {
+    content:'<img src="https://static.wikia.nocookie.net/berserk/images/4/40/Manga_V38_Guts.png/revision/latest?cb=20170919104357"/>';
+    position:absolute;
+    top:50%;
+    left:50%;
+
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size:3rem;
+    font-weight:300;
+    color:#fff;
+  }
+  */
+.my-card {
+  padding: 0.5rem;
+}
+
+.my-card .custom-design {
+  color: white !important;
+  border: 1px white solid;
+  margin-top: 1rem;
+}
+
+.my-card .custom-design:focus {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-box-shadow: 0 0 10px 3px #fff;
+          box-shadow: 0 0 10px 3px #fff;
+}
+
+.close-popup {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+  background-color: blueviolet;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+}
+
+.overlay {
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 4;
+}
+
+.popup {
+  overflow-y: scroll;
+  position: fixed;
+  width: 0;
+  height: 0;
+  left: 50%;
+  top: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+  z-index: 4 !important;
+}
+
+img {
+  pointer-events: none;
+}
+/*# sourceMappingURL=main.css.map */
